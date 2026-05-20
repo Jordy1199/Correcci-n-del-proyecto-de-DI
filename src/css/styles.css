@@ -310,119 +310,138 @@ body {
 }
 
 /* ESCRITORIO */
+@media (min-width: 1024px) {
+    .main-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        box-sizing: border-box;
+    }
 
+    /* --- Forzar comportamiento de bloques --- */
+    .section {
+        margin-bottom: 0;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+    }
 
-    /* Mejoras de visualización interna en escritorio */
-    .about-container { flex-direction: row; align-items: center; text-align: left; }
-    .about-text { flex: 2; }
-    .about-stats { flex: 1; flex-direction: column; gap: 10px; margin-left: 20px; }
-
-    .services-grid { grid-template-columns: repeat(3, 1fr); }
-    
-    .form-grid { grid-template-columns: repeat(4, 1fr); }
-
-    
-    /* Distribución en Grid para Escritorio */
-    .section:nth-of-type(1) { grid-column: 1 / 3; } 
-    .section:nth-of-type(2) { grid-column: 1 / 2; } 
-    .section:nth-of-type(3) { grid-column: 2 / 3; } 
-    .section:nth-of-type(4) { grid-column: 1 / 3; } 
-    
-    /* El grid de Tipos de Espacio tome todo el espacio sobrante hacia abajo */
-    .types-grid { 
-        grid-template-columns: repeat(2, 1fr); 
-        flex: 1; 
+    /* --- Distribución y Control de Columnas --- */
+    .status-section { 
+        grid-column: 1 / 3; 
     }
     
-    /* Centramos el contenido de las tarjetitas para que se vean bien al estirarse */
-    .type-card {
+    .types-section { 
+        grid-column: 1 / 2; 
+    }
+    
+    .search-section { 
+        grid-column: 2 / 3; 
+    }
+
+    .about-section { 
+        grid-column: 1 / 2; 
+    }
+    
+    .services-section { 
+        grid-column: 2 / 3; 
+    }
+
+    .reservation-section { 
+        grid-column: 1 / 3; 
+    }
+
+    /* --- Optimización de componentes internos en PC --- */
+    .status-grid {
+        flex-direction: row;
+        gap: 20px;
+    }
+    
+    .status-card {
+        flex: 1;
+        padding: 20px;
+        flex-direction: row;
         justify-content: center;
     }
 
-    /* La tarjeta del mapa también llene su espacio en la columna derecha */
-    .result-card {
+    .types-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
         flex: 1;
     }
+    
+    .type-card {
+        justify-content: flex-start;
+    }
 
-    .form-grid { grid-template-columns: repeat(4, 1fr); align-items: start;}
-    .form-item:nth-child(1), .form-item:nth-child(2), .form-item:nth-child(3), .form-item:nth-child(4) { grid-column: span 1; }
-    .form-item.full-width { grid-column: 1 / 3; } 
+    .result-body {
+        flex-direction: row;
+        min-height: 250px;
+    }
+    
+    .result-details {
+        flex: 1;
+    }
+    
+    .result-map {
+        flex: 1.2;
+    }
+    
+    .result-map iframe {
+        border-top: none;
+        border-left: 1px solid var(--border-gray);
+    }
 
+    .about-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+    
+    .about-stats {
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 20px;
+    }
 
-.about-section, .services-section { 
-    grid-column: 1 / 3; /* Esto hace que crucen de lado a lado */
-    height: auto !important; 
-}
+    .services-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        justify-content: center;
+        height: 100%;
+    }
+    
+    .service-card {
+        display: flex;
+        align-items: center;
+        text-align: left;
+        padding: 15px 20px;
+        gap: 20px;
+    }
+    
+    .service-icon {
+        margin-bottom: 0;
+        font-size: 1.8rem;
+    }
 
-.about-container { flex-direction: row; align-items: center; }
-.about-text { flex: 2; }
-.about-stats { flex: 1; flex-direction: column; gap: 10px; }
-
-.services-grid { grid-template-columns: repeat(3, 1fr); }
-
-/* ================= ABOUT & SERVICES ================= */
-.about-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.about-text p {
-    line-height: 1.6;
-    margin-bottom: 10px;
-    font-size: 0.95rem;
-    color: var(--text-main);
-}
-
-.about-stats {
-    display: flex;
-    justify-content: space-around;
-    padding: 15px;
-    background-color: var(--green-light);
-    border-radius: 10px;
-    text-align: center;
-}
-
-.stat-value {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--epn-blue);
-}
-
-.stat-desc {
-    font-size: 0.75rem;
-    color: var(--text-light);
-    font-weight: 600;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 15px;
-}
-
-.service-card {
-    border: 1px solid var(--border-gray);
-    padding: 20px;
-    border-radius: 12px;
-    text-align: center;
-}
-
-.service-icon {
-    font-size: 2rem;
-    color: var(--epn-blue);
-    margin-bottom: 12px;
-}
-
-.service-card h3 {
-    font-size: 1rem;
-    margin: 0 0 8px 0;
-    color: var(--epn-blue);
-}
-
-.service-card p {
-    font-size: 0.85rem;
-    color: var(--text-light);
-    margin: 0;
+    .form-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+    }
+    
+    .form-item.full-width {
+        grid-column: span 2;
+    }
+    
+    .btn-reservar {
+        width: 320px;
+        align-self: center;
+        margin-top: 20px;
+    }
 }
