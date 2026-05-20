@@ -445,3 +445,150 @@ body {
         margin-top: 20px;
     }
 }
+/* ================= APP SECTION ================= */
+
+.app{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px 20px;
+    background-color: var(--bg-white);
+    margin: 30px auto;
+    max-width: 1200px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+}
+
+.mobile{
+    text-align: center;
+    max-width: 600px;
+}
+
+.mobile__title{
+    font-size: 2rem;
+    color: var(--epn-blue);
+    margin-bottom: 15px;
+}
+
+.mobile__description{
+    color: var(--text-light);
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.mobile__buttons{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.mobile__buttons img{
+    width: 140px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.mobile__buttons img:hover{
+    transform: scale(1.05);
+}
+
+.mobile__img img{
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    display: block;
+}
+
+/* ================= GALLERY ================= */
+
+.gallery{
+    padding: 50px 20px;
+    text-align: center;
+    background-color: var(--bg-main);
+}
+
+.gallery__title{
+    margin: 0;
+    font-size: 2.5rem;
+    color: var(--epn-blue);
+}
+
+.gallery__description{
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-light);
+    max-width: 700px;
+    margin: 15px auto 30px;
+}
+
+.gallery__images{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    justify-items: center;
+}
+
+.gallery__images img{
+    width: 100%;
+    max-width: 320px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery__images img:hover{
+    transform: scale(1.03);
+    box-shadow: var(--shadow-md);
+}
+
+/* ================= TABLET ================= */
+
+@media (min-width: 768px){
+
+    .gallery__images{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mobile__title{
+        font-size: 2.5rem;
+    }
+
+    .gallery__title{
+        font-size: 3rem;
+    }
+}
+
+/* ================= DESKTOP ================= */
+
+@media (min-width: 1024px){
+
+    .app{
+        flex-direction: row;
+        padding: 60px;
+    }
+
+    .mobile{
+        text-align: left;
+    }
+
+    .mobile__buttons{
+        justify-content: flex-start;
+    }
+
+    .gallery__images{
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .gallery__images img{
+        max-width: 100%;
+        height: 260px;
+    }
+}
